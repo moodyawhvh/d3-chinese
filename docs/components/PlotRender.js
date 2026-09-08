@@ -1,8 +1,18 @@
+// ============================================================
+// PlotRender.js 中文注释版
+// 本组件是文档站中渲染 Observable Plot 图表的 Vue 渲染函数组件。
+// 核心思路:在服务端/无 DOM 环境用虚拟 Document 生成图表的超脚本
+// 表示,在客户端再替换(水合)为真实 DOM。
+// 🌐 注释由 d3-chinese 汉化项目添加,代码逻辑与上游完全一致。
+// ============================================================
+
 import * as Plot from "@observablehq/plot";
 import {h, withDirectives} from "vue";
 
+// 虚拟 Document:在无真实 DOM 的环境(SSG/SSR)下充当 Plot 的 document。
 class Document {
   constructor() {
+    // 根元素 <html>
     this.documentElement = new Element(this, "html");
   }
   createElementNS(namespace, tagName) {
@@ -22,12 +32,14 @@ class Document {
   }
 }
 
+// 空样式桩:虚拟环境下样式属性不产生任何实际效果。
 class Style {
   static empty = new Style();
   setProperty() {}
   removeProperty() {}
 }
 
+// 虚拟元素:仅记录标签名、属性与子节点,渲染时转成超脚本。
 class Element {
   constructor(ownerDocument, tagName) {
     this.ownerDocument = ownerDocument;
@@ -62,12 +74,15 @@ class Element {
   }
   addEventListener() {
     // ignored; interaction needs real DOM
+    // 忽略:交互需要真实 DOM
   }
   removeEventListener() {
     // ignored; interaction needs real DOM
+    // 忽略:交互需要真实 DOM
   }
   dispatchEvent() {
     // ignored; interaction needs real DOM
+    // 忽略:交互需要真实 DOM
   }
   appendChild(child) {
     this.children.push(child);
@@ -92,6 +107,7 @@ class Element {
     return [];
   }
   set textContent(value) {
+    // 直接用单个文本节点替换全部子节点
     this.children = [this.ownerDocument.createTextNode(value)];
   }
   set style(value) {
@@ -100,6 +116,7 @@ class Element {
   get style() {
     return Style.empty;
   }
+  // 递归转换为 Vue 可渲染的超脚本(h 调用)
   toHyperScript() {
     return h(
       this.tagName,
@@ -109,6 +126,7 @@ class Element {
   }
 }
 
+// 虚拟文本节点:仅保存字符串值。
 class TextNode {
   constructor(ownerDocument, nodeValue) {
     this.ownerDocument = ownerDocument;
@@ -120,6 +138,7 @@ class TextNode {
 }
 
 // Converts the real DOM to virtual DOM (for client-side hydration).
+// 把真实 DOM 转换为虚拟 DOM(用于客户端水合)。
 function toHyperScript(node) {
   if (node.nodeType === 3) return node.nodeValue; // TextNode
   const props = {};
@@ -138,6 +157,7 @@ export default {
   },
   render() {
     const {method} = this;
+    // 合并默认选项:plot 模式下默认渲染单个 mark,并适配 VitePress 宽度
     const options = {
       ...(method === "plot" && {
         marks: this.mark == null ? [] : [this.mark],
@@ -146,6 +166,7 @@ export default {
       ...this.options,
       className: "plot"
     };
+    // 延迟渲染模式:滚动进入视口时才绘制图表
     if (this.defer) {
       const mounted = (el) => {
         disconnect(); // remove old listeners
@@ -154,6 +175,7 @@ export default {
           el.append(Plot[method](options));
         }
         const rect = el.getBoundingClientRect();
+        // 元素已在视口内则立即渲染,否则注册 IntersectionObserver 惰性加载
         if (rect.bottom > 0 && rect.top < window.innerHeight) {
           observed();
         } else {
@@ -164,6 +186,7 @@ export default {
             {rootMargin: "100px"}
           );
           this._observer.observe(el);
+          // 浏览器空闲时兜底渲染,保证图表最终一定出现
           if (typeof requestIdleCallback === "function") {
             this._idling = requestIdleCallback(observed);
           }
@@ -183,6 +206,7 @@ export default {
           this._idling = undefined;
         }
       };
+      // 用占位容器保持宽高比,避免延迟渲染时页面跳动
       const {height = 400} = this.options;
       return withDirectives(
         h(
@@ -210,11 +234,13 @@ export default {
         ]
       );
     }
+    // 客户端:直接生成图表,挂载后用真实 DOM 替换服务端渲染的虚拟 DOM
     if (typeof document !== "undefined") {
       const plot = Plot[method](options);
       const replace = (el) => el.firstChild.replaceWith(plot);
       return withDirectives(h("span", [toHyperScript(plot)]), [[{mounted: replace, updated: replace}]]);
     }
+    // 服务端:传入虚拟 Document 生成超脚本字符串表示
     return h("span", [Plot[method]({...options, document: new Document()}).toHyperScript()]);
   }
 };
