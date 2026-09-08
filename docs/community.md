@@ -1,36 +1,38 @@
-# Community 🏠 {#community}
+> 🌐 本文档由 [d3/d3](https://github.com/d3/d3) 翻译,英文原版见原项目。
 
-Learning D3? Love data visualization? Don’t go it alone! Join our community to get help, be inspired, and do the same for others.
+# 社区 🏠 {#community}
 
-## Staying up-to-date
+正在学 D3?热爱数据可视化?别一个人闷头干!加入我们的社区来获取帮助、寻找灵感,也把同样的帮助带给别人。
 
-If you like D3, please star ⭐️ our [GitHub repo](https://github.com/d3/d3) to show appreciation and to see updates on your GitHub dashboard.
+## 保持关注
 
-And of course, follow us on [Observable](https://observablehq.com/@observablehq?tab=profile), [Mastodon](https://vis.social/@observablehq), [Twitter](https://twitter.com/observablehq), and [LinkedIn](https://www.linkedin.com/company/observable)!
+如果你喜欢 D3,请给我们的 [GitHub 仓库](https://github.com/d3/d3)点个 ⭐️,既是对我们的鼓励,也能在你的 GitHub 动态里看到更新。
 
-## Getting help
+当然,也欢迎在 [Observable](https://observablehq.com/@observablehq?tab=profile)、[Mastodon](https://vis.social/@observablehq)、[Twitter](https://twitter.com/observablehq) 和 [LinkedIn](https://www.linkedin.com/company/observable) 上关注我们!
 
-We recommend asking for help in our [GitHub Discussions](https://github.com/d3/d3/discussions). This is the preferred platform for support requests and community engagement.
+## 获取帮助
 
-We encourage you to share your work, no matter how messy, on [Observable](https://observablehq.com). Sharing live code is the easiest way to let people see what you see, and to debug your problem. Strive for a [minimal, reproducible example](https://stackoverflow.com/help/minimal-reproducible-example) — it helps people hone in on your problem more quickly.
+我们推荐在 [GitHub Discussions](https://github.com/d3/d3/discussions) 中求助。这是支持请求和社区交流的首选平台。
 
-When asking for help, don’t just post your code and ask people to fix it. Provide context, and say what you want help with. For example:
+我们鼓励你把自己的作品分享到 [Observable](https://observablehq.com),不管写得多乱。分享可运行的代码是让别人看到你所见、并帮你调试问题的最简单方式。请尽量提供[最小可复现示例](https://stackoverflow.com/help/minimal-reproducible-example)——这能帮大家更快定位你的问题。
 
-- What are you trying to achieve? What is your goal?
-- What other solutions have you tried?
-- What behavior are you currently seeing?
-- Is the current behavior not what you expect?
+求助时,不要只把代码一贴就让人帮你修。请提供上下文,说清楚你需要什么帮助。例如:
 
-If you think you’ve found a bug in D3, please file a [GitHub issue](https://github.com/d3/d3/issues). But don’t use an issue to ask for help — you’ll have better luck on the forum or Slack.
+- 你想实现什么?目标是什么?
+- 你还尝试过哪些其他方案?
+- 你现在看到的行为是什么?
+- 当前行为与你预期不符吗?
 
-## Getting involved
+如果你认为发现了 D3 的 bug,请提交一个 [GitHub issue](https://github.com/d3/d3/issues)。但不要用 issue 来求助——去论坛或 Slack 效果更好。
 
-We’d love for you to join the community! Here are some ways to participate:
+## 参与贡献
 
-* Share your work on [Observable](https://observablehq.com). Working in public is a great way to help others learn and be inspired. Don’t worry if your code is messy or unfinished; sharing drafts normalizes the challenges that everyone experiences doing data visualization.
+我们非常欢迎你加入社区!以下是一些参与方式:
 
-* Upvote 👍 or comment on [GitHub issues](https://github.com/d3/d3/issues). We’d love your input on what to build next. If your desired feature isn’t already there, or if you’ve found a bug, file an issue and tell us about it.
+* 在 [Observable](https://observablehq.com) 上分享你的作品。公开创作是帮助他人学习、激发灵感的好方式。别担心代码乱或者没写完;分享草稿能让大家看到:数据可视化路上遇到的坑,人人都一样。
 
-* Answer questions or participate in discussions on the [Observable forum](https://talk.observablehq.com/) and the [Observable community Slack](https://observablehq.com/slack/join). You’ll help others, and might learn something yourself, too.
+* 给 [GitHub issues](https://github.com/d3/d3/issues) 点 👍 或评论。我们很想知道你希望我们接下来做什么。如果你想要的功能还不存在,或者你发现了 bug,请提交 issue 告诉我们。
 
-Please help us maintain a positive environment for all by adhering to our [code of conduct](https://github.com/observablehq/.github/blob/master/CODE_OF_CONDUCT.md). Thank you!
+* 在 [Observable 论坛](https://talk.observablehq.com/)和 [Observable 社区 Slack](https://observablehq.com/slack/join) 上答疑或参与讨论。你会帮到别人,自己也可能有所收获。
+
+请遵守我们的[行为准则](https://github.com/observablehq/.github/blob/master/CODE_OF_CONDUCT.md),一起维护对所有人友好的社区环境。谢谢!

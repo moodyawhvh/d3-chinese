@@ -4,13 +4,17 @@ import ExampleBlankChart from "./components/ExampleBlankChart.vue";
 
 </script>
 
-# Getting started
+> 🌐 本文档由 [d3/d3](https://github.com/d3/d3) 翻译,英文原版见原项目。
+>
+> ℹ️ 注:本文件原文较长,本次翻译覆盖全部正文说明章节;代码示例保持原样(注释为英文原版)。
 
-D3 works in any JavaScript environment.
+# 入门指南
 
-## Try D3 online
+D3 可以在任何 JavaScript 环境中运行。
 
-The fastest way to get started (and get help) with D3 is on [Observable](https://observablehq.com)! D3 is available by default in notebooks as part of Observable’s standard library. To create something with D3, return the generated DOM element from a cell. Here is a blank chart to get you started:
+## 在线体验 D3
+
+上手 D3(并获得帮助)最快的方式是在 [Observable](https://observablehq.com) 上!D3 默认内置于 Observable 笔记本的标准库中。要用 D3 创作点什么,只需在单元格中返回生成的 DOM 元素。下面是一个空白图表,帮你起步:
 
 <ExampleBlankChart />
 
@@ -54,23 +58,23 @@ The fastest way to get started (and get help) with D3 is on [Observable](https:/
 }
 ```
 
-As a more complete example, try one of these starter templates:
+想要更完整的示例,可以试试这些起步模板:
 
-* [Area chart](https://observablehq.com/@d3/area-chart/2)
-* [Bar chart](https://observablehq.com/@d3/bar-chart/2)
-* [Donut chart](https://observablehq.com/@d3/donut-chart/2)
-* [Histogram](https://observablehq.com/@d3/histogram/2)
-* [Line chart](https://observablehq.com/@d3/line-chart/2)
+* [面积图](https://observablehq.com/@d3/area-chart/2)
+* [柱状图](https://observablehq.com/@d3/bar-chart/2)
+* [环形图](https://observablehq.com/@d3/donut-chart/2)
+* [直方图](https://observablehq.com/@d3/histogram/2)
+* [折线图](https://observablehq.com/@d3/line-chart/2)
 
-See the [D3 gallery](https://observablehq.com/@d3/gallery) for more forkable examples.
+更多可 fork 的示例请看 [D3 画廊](https://observablehq.com/@d3/gallery)。
 
-Observable includes a few D3 snippets when you click **+** to add a cell (type “d3” when the cell menu is open to filter), as well as convenient [sample datasets](https://observablehq.com/@observablehq/sample-datasets) to try out D3 features. Or upload a CSV or JSON file to start playing with your data. You can also fork any of the [hundreds of notebooks](https://observablehq.com/@d3?tab=notebooks) we’ve published for a head start.
+点击 **+** 添加单元格时,Observable 会提供一些 D3 代码片段(在单元格菜单打开时输入 “d3” 即可筛选),还有方便的[示例数据集](https://observablehq.com/@observablehq/sample-datasets)供你试用 D3 的各项特性。你也可以直接上传 CSV 或 JSON 文件,开始玩自己的数据。还可以 fork 我们发布的[数百个笔记本](https://observablehq.com/@d3?tab=notebooks)中的任意一个,赢在起跑线上。
 
-Observable is free for public use. Sign up for a [Pro account](https://observablehq.com/pricing) to connect to private databases, collaborate on private notebooks, and more.
+Observable 对公开使用免费。注册 [Pro 账户](https://observablehq.com/pricing)即可连接私有数据库、在私有笔记本上协作,以及更多功能。
 
-## D3 in vanilla HTML
+## 在原生 HTML 中使用 D3
 
-In vanilla HTML, you can load D3 from a CDN such as jsDelivr or you can download it locally. We recommend using the CDN-hosted ES module bundle. But for those who need it, we also provide a UMD bundle that exports the `d3` global when loaded as a plain script.
+在原生 HTML 中,你可以从 jsDelivr 等 CDN 加载 D3,也可以下载到本地使用。我们推荐使用 CDN 托管的 ES module 包。但如果有需要,我们也提供 UMD 包,以普通脚本方式加载时会导出全局变量 `d3`。
 
 :::code-group
 ```html [ESM + CDN]
@@ -210,7 +214,7 @@ container.append(svg.node());
 ```
 :::
 
-You can also import and destructure individual D3 modules like so:
+你也可以像下面这样导入并解构单个 D3 模块:
 
 ```html
 <script type="module">
@@ -226,16 +230,16 @@ const simulation = forceSimulation(nodes)
 </script>
 ```
 
-If you’d prefer to run D3 locally (or offline), you can download the UMD bundles of D3 here:
+如果你想在本地(或离线)运行 D3,可以在这里下载 D3 的 UMD 包:
 
 - <a href="./d3.v7.js" download>d3.v7.js</a>
 - <a href="./d3.v7.min.js" download>d3.v7.min.js</a>
 
-Then, create an `index.html` file as shown above in the **UMD + local** tab. Use the non-minified bundle for debugging, and the minified bundle for faster performance in production.
+然后按上面 **UMD + local** 标签页所示创建一个 `index.html` 文件。调试时使用未压缩包,生产环境使用压缩包以获得更好性能。
 
-## Installing from npm
+## 从 npm 安装
 
-If you’re developing a web application using Node, you can install D3 via yarn, npm, pnpm, or your preferred package manager.
+如果你在用 Node 开发 Web 应用,可以通过 yarn、npm、pnpm 或你偏好的包管理器安装 D3。
 
 :::code-group
 
@@ -253,29 +257,29 @@ pnpm add d3
 
 :::
 
-You can then load D3 into your app as:
+然后在应用中这样加载 D3:
 
 ```js
 import * as d3 from "d3";
 ```
 
-You can instead import specific symbols if you prefer:
+也可以按需只导入特定的符号:
 
 ```js
 import {select, selectAll} from "d3";
 ```
 
-Alternatively you can install and import from D3 submodules:
+或者,安装并从 D3 子模块导入:
 
 ```js
 import {mean, median} from "d3-array";
 ```
 
-TypeScript declarations are available via [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped).
+TypeScript 类型声明可通过 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) 获取。
 
-## D3 in React
+## 在 React 中使用 D3
 
-Most D3 modules (including [d3-scale](./d3-scale.md), [d3-array](./d3-array.md), [d3-interpolate](./d3-interpolate.md), and [d3-format](./d3-format.md)) don’t interact with the DOM, so there is no difference when using them in React. You can use them in JSX for purely declarative visualization, such as the line plot below.
+大多数 D3 模块(包括 [d3-scale](./d3-scale.md)、[d3-array](./d3-array.md)、[d3-interpolate](./d3-interpolate.md) 和 [d3-format](./d3-format.md))不与 DOM 交互,在 React 中使用毫无差异。你可以在 JSX 中使用它们进行纯声明式可视化,比如下面的折线图。
 
 :::code-group
 ```jsx [LinePlot.jsx]
@@ -307,7 +311,7 @@ export default function LinePlot({
 
 <p style="margin-top: -1em;"><a href="https://codesandbox.io/s/d3-react-ssr-5g1bm0?file=/src/LinePlot.jsx" style="font-size: smaller;" target="_blank">Sandbox ↗︎</a></p>
 
-D3 modules that operate on [selections](./d3-selection/selecting.md) (including [d3-selection](./d3-selection.md), [d3-transition](./d3-transition.md), and [d3-axis](./d3-axis.md)) do manipulate the DOM, which competes with React’s virtual DOM. In those cases, you can attach a ref to an element and pass it to D3 in a useEffect hook.
+基于[选择集](./d3-selection/selecting.md)工作的 D3 模块(包括 [d3-selection](./d3-selection.md)、[d3-transition](./d3-transition.md) 和 [d3-axis](./d3-axis.md))会直接操作 DOM,这与 React 的虚拟 DOM 存在竞争。这种情况下,你可以给元素挂一个 ref,并在 useEffect 钩子中把它交给 D3。
 
 :::code-group
 ```jsx [LinePlot.jsx]
@@ -346,11 +350,11 @@ export default function LinePlot({
 
 <p style="margin-top: -1em;"><a href="https://codesandbox.io/s/d3-react-useeffect-5lp0x6?file=/src/LinePlot.jsx" style="font-size: smaller;" target="_blank">Sandbox ↗︎</a></p>
 
-For more guidance using D3 in React, see [Amelia Wattenberger’s post](https://2019.wattenberger.com/blog/react-and-d3).
+更多在 React 中使用 D3 的指导,参见 [Amelia Wattenberger 的文章](https://2019.wattenberger.com/blog/react-and-d3)。
 
-## D3 in Svelte
+## 在 Svelte 中使用 D3
 
-As [with React](#d3-in-react), you can use Svelte exclusively for rendering if you like, and only use D3 modules that don’t manipulate the DOM. Here is a line plot of an array of numbers that uses [d3-shape](./d3-shape.md) and [d3-scale](./d3-scale-chromatic.md).
+[与 React 一样](#d3-in-react),如果你愿意,可以只用 Svelte 做渲染,只用不操作 DOM 的 D3 模块。下面是一个数字数组的折线图,用到了 [d3-shape](./d3-shape.md) 和 [d3-scale](./d3-scale-chromatic.md)。
 
 :::code-group
 ```svelte [LinePlot.svelte]
@@ -382,7 +386,7 @@ As [with React](#d3-in-react), you can use Svelte exclusively for rendering if y
 
 <p style="margin-top: -1em;"><a href="https://svelte.dev/repl/ece91c0d8b204d5ea970dbbc0d6783aa?version=3.59.1" style="font-size: smaller;" target="_blank">REPL ↗︎</a></p>
 
-Svelte’s reactive statements (`$:`) pair nicely with D3 [data joins](./d3-selection/joining.md) for efficient updates. Below, we use them to render dynamic axes as the data changes.
+Svelte 的响应式语句(`$:`)与 D3 的[数据联接](./d3-selection/joining.md)搭配得很妙,能高效完成更新。下面我们用它们在数据变化时渲染动态坐标轴。
 
 :::code-group
 ```svelte [LinePlot.svelte]
