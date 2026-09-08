@@ -5,9 +5,11 @@ import ColorRamp from "./components/ColorRamp.vue";
 
 </script>
 
+> 🌐 本文档由 [d3/d3](https://github.com/d3/d3) 翻译,英文原版见原项目。
+
 # d3-interpolate
 
-This module provides a variety of interpolation methods for blending between two values. Values may be numbers, colors, strings, arrays, or even deeply-nested objects. For example:
+该模块提供多种插值方法,用于在两个值之间进行混合过渡。值可以是数字、颜色、字符串、数组,甚至是深度嵌套的对象。例如:
 
 ```js
 const i = d3.interpolateNumber(10, 20);
@@ -17,19 +19,19 @@ i(0.5); // 15
 i(1.0); // 20
 ```
 
-The returned function `i` is an *interpolator*. Given a starting value *a* and an ending value *b*, it takes a parameter *t* typically in [0, 1] and returns the corresponding interpolated value. An interpolator typically returns a value equivalent to *a* at *t* = 0 and a value equivalent to *b* at *t* = 1.
+返回的函数 `i` 是一个*插值器(interpolator)*。给定起始值 *a* 和结束值 *b*,它接受一个通常位于 [0, 1] 区间的参数 *t*,并返回对应的插值结果。插值器通常在 *t* = 0 时返回等价于 *a* 的值,在 *t* = 1 时返回等价于 *b* 的值。
 
-You can interpolate more than just numbers. To find the perceptual midpoint between steelblue and brown:
+能插值的不只是数字。想求 steelblue 和 brown 之间感知上的中间色:
 
 ```js
 d3.interpolateLab("steelblue", "brown")(0.5); // "rgb(142, 92, 109)"
 ```
 
-Or, as a color ramp from *t* = 0 to *t* = 1:
+或者,作为从 *t* = 0 到 *t* = 1 的色带:
 
 <ColorRamp :color='d3.interpolateLab("steelblue", "brown")' />
 
-Here’s a more elaborate example demonstrating type inference used by [interpolate](./d3-interpolate/value.md#interpolate):
+下面这个更完整的示例演示了 [interpolate](./d3-interpolate/value.md#interpolate) 所使用的类型推断:
 
 ```js
 const i = d3.interpolate({colors: ["red", "blue"]}, {colors: ["white", "black"]});
@@ -38,11 +40,11 @@ i(0.5); // {colors: ["rgb(255, 128, 128)", "rgb(0, 0, 128)"]}
 i(1.0); // {colors: ["rgb(255, 255, 255)", "rgb(0, 0, 0)"]}
 ```
 
-Note that the generic value interpolator detects not only nested objects and arrays, but also color strings and numbers embedded in strings!
+注意,这个通用值插值器不仅能识别嵌套的对象和数组,还能识别颜色字符串以及嵌在字符串中的数字!
 
-See one of:
+参阅以下章节:
 
-* [Value interpolation](./d3-interpolate/value.md)
-* [Color interpolation](./d3-interpolate/color.md)
-* [Transform interpolation](./d3-interpolate/transform.md)
-* [Zoom interpolation](./d3-interpolate/zoom.md)
+* [值插值](./d3-interpolate/value.md)
+* [颜色插值](./d3-interpolate/color.md)
+* [变换插值](./d3-interpolate/transform.md)
+* [缩放插值](./d3-interpolate/zoom.md)

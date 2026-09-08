@@ -1,8 +1,10 @@
+> 🌐 本文档由 [d3/d3](https://github.com/d3/d3) 翻译,英文原版见原项目。
+
 # d3-shape
 
-Visualizations can be represented by discrete graphical marks such as [symbols](./d3-shape/symbol.md), [arcs](./d3-shape/arc.md), [lines](./d3-shape/line.md), and [areas](./d3-shape/area.md). While the rectangles of a bar chart may sometimes be simple, other shapes are complex, such as rounded annular sectors and Catmull–Rom splines. The d3-shape module provides a variety of shape generators for your convenience.
+可视化可以由离散的图形标记构成,例如[符号](./d3-shape/symbol.md)、[弧线](./d3-shape/arc.md)、[折线](./d3-shape/line.md)和[面积](./d3-shape/area.md)。柱状图的矩形有时还算简单,但其他形状可能相当复杂,比如圆角环形扇区和 Catmull–Rom 样条。d3-shape 模块为你提供了各种现成的形状生成器。
 
-As with other aspects of D3, these shapes are driven by data: each shape generator exposes accessors that control how the input data are mapped to a visual representation. For example, you might define a line generator for a time series by [scaling](./d3-scale.md) fields of your data to fit the chart:
+与 D3 的其他部分一样,这些形状由数据驱动:每个形状生成器都暴露了访问器(accessor),用于控制输入数据如何映射到视觉表示。例如,你可以这样为时间序列定义一个折线生成器,把数据字段[缩放](./d3-scale.md)到图表范围内:
 
 ```js
 const line = d3.line()
@@ -10,28 +12,28 @@ const line = d3.line()
     .y((d) => y(d.value));
 ```
 
-This line generator can then be used to compute the `d` attribute of an SVG path element:
+然后可以用这个折线生成器计算 SVG path 元素的 `d` 属性:
 
 ```js
 path.datum(data).attr("d", line);
 ```
 
-Or you can use it to render to a Canvas 2D context:
+也可以用它渲染到 Canvas 2D 上下文:
 
 ```js
 line.context(context)(data);
 ```
 
-See one of:
+参阅以下章节:
 
-- [Arcs](./d3-shape/arc.md) - circular or annular sectors, as in a pie or donut chart.
-- [Areas](./d3-shape/area.md) - an area defined by a bounding topline and baseline, as in an area chart.
-- [Curves](./d3-shape/curve.md) - interpolate between points to produce a continuous shape.
-- [Lines](./d3-shape/line.md) - a spline or polyline, as in a line chart.
-- [Links](./d3-shape/link.md) - a smooth cubic Bézier curve from a source to a target.
-- [Pies](./d3-shape/pie.md) - compute angles for a pie or donut chart.
-- [Stacks](./d3-shape/stack.md) - stack adjacent shapes, as in a stacked bar chart.
-- [Symbols](./d3-shape/symbol.md) - a categorical shape encoding, as in a scatterplot.
-- [Radial areas](./d3-shape/radial-area.md) - like [area](./d3-shape/area.md), but in polar coordinates.
-- [Radial lines](./d3-shape/radial-line.md) - like [line](./d3-shape/line.md), but in polar coordinates.
-- [Radial links](./d3-shape/radial-link.md) - like [link](./d3-shape/link.md), but in polar coordinates.
+- [弧线](./d3-shape/arc.md) - 圆形或环形扇区,用于饼图或环形图。
+- [面积](./d3-shape/area.md) - 由上边界线和基线围成的区域,用于面积图。
+- [曲线](./d3-shape/curve.md) - 在点之间插值,生成连续的形状。
+- [折线](./d3-shape/line.md) - 样条或折线,用于折线图。
+- [连线](./d3-shape/link.md) - 从源到目标的平滑三次贝塞尔曲线。
+- [饼图](./d3-shape/pie.md) - 为饼图或环形图计算角度。
+- [堆叠](./d3-shape/stack.md) - 堆叠相邻的形状,用于堆叠柱状图。
+- [符号](./d3-shape/symbol.md) - 分类形状编码,用于散点图。
+- [径向面积](./d3-shape/radial-area.md) - 类似[面积](./d3-shape/area.md),但使用极坐标。
+- [径向折线](./d3-shape/radial-line.md) - 类似[折线](./d3-shape/line.md),但使用极坐标。
+- [径向连线](./d3-shape/radial-link.md) - 类似[连线](./d3-shape/link.md),但使用极坐标。
